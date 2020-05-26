@@ -40,4 +40,10 @@ class User extends BaseConnect
         return $this->execute($sql);
     }
 
+    public function login($email, $password)
+    {
+        $sql = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'";
+        return mysqli_num_rows($this->execute($sql));
+    }
+
 }
