@@ -3,11 +3,13 @@
 require_once 'Model/User.php'; 
 class UserController
 {   
-    public function index()
+// LogIn LogOut Register    
+    public function logInForm()
     {
         require_once "Views/LoginForm.php";
     }
-    public function login()
+
+    public function logIn()
     {
         if (isset($_POST['email'], $_POST['password']))
         {
@@ -21,17 +23,65 @@ class UserController
                 header('Location: index.php?controller=UserController&action=index');
             } else
             {
-                $_SESSION['ROLE'] = "admin";
-
+                $user = $userModel->getDataByEmail($email);
+                if ($user['role'] === 'admin')
+                {
+                    $_SESSION['role'] = "admin";
+                    header('Location: index.php?controller=HomeController&action=adminPage');
+                } else
+                {
+                    $_SESSION['role'] = "user";
+                    header('Location: index.php?controller=HomeController&action=adminPage');
+                }
             };
         }
     }
 
-    public function get_All_Users()
+    public function registerForm()
+    {
+        require_once "Views/RegisterForm.php";
+    }
+
+    public function registerHandle()
+    {   
+        $userModel = new User();
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        $password = $_POST['password'];
+        if ($userModel->checkEmail($email))
+        {
+            $updatelog = "Email Existed!";
+            header('Location: index.php?controller=UserController&action=registerForm');
+        }
+        else
+        {
+            $userModel->create_User($name,$email,$password);
+            $success = "Register Successfully";
+            header('Location: index.php?controller=UserController&action=logInForm');
+        }
+    }
+
+    public function logOut()
+    {
+        session_destroy();
+		header('Location: index.php');
+    }
+
+// CRUD
+    public function getAllUsers()
     {
         $userModel = new User();
         $userList = $userModel->get_All_Data();
+        require_once "Views/Admin/UsersList.php";
     }
 
+    public function updateForm()
+    {
+        $userModel = new User();
+        $user = $userModel->getDataById($_GET['user_id']);
+        require_once "Views/User/UpdateForm.php";
+    }
 
+    
+}
 ?>
