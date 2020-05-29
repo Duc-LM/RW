@@ -24,6 +24,7 @@ class UserController
             } else
             {
                 $user = $userModel->getDataByEmail($email);
+                $_SESSION['user_id'] = $user['id'];
                 if ($user['role'] === 'admin')
                 {
                     $_SESSION['role'] = "admin";
@@ -85,6 +86,7 @@ class UserController
     public function update()
     {
         $userModel = new User();
+        $user_id = $_GET['id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
         $pass1 = $_POST['pass1'];

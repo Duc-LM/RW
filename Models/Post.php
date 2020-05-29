@@ -43,7 +43,7 @@ class Post extends BaseConnect
         return $this->execute($sql);
     }
 
-    public function update_Post_By_User($id,$title, $author, $content, $tag, $image)
+    public function update_Post($id,$title, $author, $content, $tag, $image)
     {
         $sql = "   UPDATE posts
                     SET title = '$title', author = '$author', content = '$content', tag = '$tag', image = '$image'
