@@ -15,7 +15,7 @@ class User extends BaseConnect
 
     public function get_User_By_Id($user_id)
     {
-        $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+        $sql = "SELECT * FROM users WHERE id = '$user_id'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
 		    $data = mysqli_fetch_array($this->result);
@@ -34,7 +34,7 @@ class User extends BaseConnect
     {
         $sql = "   UPDATE users
                     SET  name = '$name', email  = '$email', password = '$password'
-                    WHERE user_id = '$user_id'  ";
+                    WHERE id = '$user_id'  ";
 
         return $this->execute($sql);
     }
@@ -42,7 +42,7 @@ class User extends BaseConnect
     public function delete_User($user_id)
     {
         $sql = "DELETE FROM users
-                WHERE user_id = '$user_id' ";
+                WHERE id = '$user_id' ";
         return $this->execute($sql);
     }
 
@@ -76,7 +76,7 @@ class User extends BaseConnect
 
     public function getDataById($user_id)
     {
-	$sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+	$sql = "SELECT * FROM users WHERE id = '$user_id'";
 	$this->execute($sql);
 	    if ($this->num_rows() != 0)
 		    $data = mysqli_fetch_array($this->result);

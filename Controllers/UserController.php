@@ -1,6 +1,6 @@
 
 <?php
-require_once 'Model/User.php'; 
+require_once 'Models/User.php'; 
 class UserController
 {   
 // LogIn LogOut Register    
@@ -82,6 +82,24 @@ class UserController
         require_once "Views/User/UpdateForm.php";
     }
 
+    public function update()
+    {
+        $userModel = new User();
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $pass1 = $_POST['pass1'];
+        $pass2 = $_POST['pass2'];
+      
+
+    }
+
+    public function delete()
+    {
+        $user_id = $_POST['id'];
+        $userModel = new User();
+        $userModel->delete_User($user_id);
+        header('Location: index.php?controller=UserController&action=getAllUsers');
+    }
     
 }
 ?>
