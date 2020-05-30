@@ -62,7 +62,20 @@ class Comment extends BaseConnect
 
     public function deleteComment($id)
     {
-        $sql = "DELETE * FROM comments WHERE id = '$id'";
+        $sql = "DELETE  FROM comments WHERE id = '$id'";
         return $this->execute($sql);
+    }
+
+    public function get_Comment_By_Id($id)
+    {
+        $sql = "SELECT * FROM comments 
+                WHERE id = '$id'";
+        $this->execute($sql);
+        if ($this->num_rows() === 0)
+            $data = 0;
+        else
+            while ($datas = $this->getData())
+                $data1[] = $datas;
+        return $data1;
     }
 }
