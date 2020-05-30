@@ -105,12 +105,12 @@ class PostController
         require_once '';
     }
 
-    public function changeStatus()
-    {
-        $post = new Post();
-        $post_id = $_GET['id'];
-        $status = $_POST['status'];
-        $post->change_Status($post_id,$status);
-        require_once '';
-    }
+    // public function changeStatus()
+    // {
+    //     $post = new Post();
+    //     $post_id = $_GET['id'];
+    //     $status = $_POST['status'];
+    //     $post->change_Status($post_id,$status);
+    //     require_once '';
+    // }
 }

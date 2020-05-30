@@ -25,15 +25,7 @@ class UserController
             {
                 $user = $userModel->getDataByEmail($email);
                 $_SESSION['user_id'] = $user['id'];
-                if ($user['role'] === 'admin')
-                {
-                    $_SESSION['role'] = "admin";
-                    header('Location: index.php?controller=HomeController&action=adminPage');
-                } else
-                {
-                    $_SESSION['role'] = "user";
-                    header('Location: index.php?controller=HomeController&action=adminPage');
-                }
+                header('Location: ');
             };
         }
     }
