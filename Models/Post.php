@@ -41,7 +41,7 @@ class Post extends BaseConnect
         $sql = "INSERT INTO `posts`(title,user_id, author, content, tag, image, status) 
                     VALUES ('$title','$user_id', '$author', '$content', '$tag', '$image','Pending accept')";
         return $this->execute($sql);
-    }
+    }conte
 
     public function update_Post($id,$title, $author, $content, $tag, $image)
     {
