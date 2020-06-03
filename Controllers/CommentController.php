@@ -1,5 +1,5 @@
 <?php
-require_once 'Models/Comment.php';
+
 class CommentController
 {
     public function createForm()
@@ -65,6 +65,15 @@ class CommentController
         $comment = new Comment();
         $id = $_GET['id'];
         $comment->deleteComment($id);
+        require_once '';
+    }
+
+    public function getCommentByPost()
+    {
+        $comment = new Comment();
+        $post_id = $_GET['id'];
+
+        $comment = $comment->get_All_Data_Of_Post($post_id);
         require_once '';
     }
 }

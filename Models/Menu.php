@@ -70,5 +70,15 @@ class Menu extends BaseConnect
         return $this->execute($sql);            
     }
 
+    public function checkName($name)
+    {
+        $sql = "select * from menus where name = '$name'";
+		$this->execute($sql);
+		if($this->num_rows()===0){
+			return false;
+		}else{
+			return true;
+		}
+    }
     
 }

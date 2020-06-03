@@ -1,5 +1,5 @@
 <?php
-require_once 'Models/Menu.php';
+
 
 class MenuController
 {
@@ -50,6 +50,7 @@ class MenuController
         //validation
         $err = array();
         if (empty($name)) $err['name']="Please fill name";
+            elseif ($menu->checkName($name)) $err['name']="Existed name";
         if (empty($shortDesc)) $err['shortDesc']="Please fill short description";
         if (empty($category)) $err['category']="Please fill category";
         if (empty($fnn)) $err['image']="Please choose image";
@@ -88,6 +89,7 @@ class MenuController
         //validation
         $err = array();
         if (empty($name)) $err['name']="Please fill name";
+        elseif ($menu->checkName($name)) $err['name']="Existed name";
         if (empty($shortDesc)) $err['shortDesc']="Please fill short description";
         if (empty($category)) $err['category']="Please fill category";
         if (empty($fnn)) $err['image']="Please choose image";

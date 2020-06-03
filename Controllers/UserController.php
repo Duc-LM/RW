@@ -1,6 +1,6 @@
 
 <?php
-require_once 'Models/User.php'; 
+
 class UserController
 {   
 // LogIn LogOut Register    
@@ -25,7 +25,12 @@ class UserController
             {
                 $user = $userModel->getDataByEmail($email);
                 $_SESSION['user_id'] = $user['id'];
-                header('Location: ');
+                $_SESSION['role'] = $user['role'];
+                if ( $_SESSION['role'] === 'admin')
+                    header('Location: index.php?controller=HomeController&action=adminPage');
+                 elseif ( $_SESSION['role'] === 'user')
+                 header('Location: index.php?controller=HomeController&action=userPage');
+                else header('Location: index.php?controller=UserController&action=logInForm ');
             };
         }
     }
@@ -84,7 +89,13 @@ class UserController
         $pass1 = $_POST['pass1'];
         $pass2 = $_POST['pass2'];
       
-
+        if ($pass1 === $pass2)
+            $userModel->update_User($user_id,$name,$email,$pass1);    
+        else 
+        {
+            $err = "Please fill in password again";
+            require_once '';
+        }    
     }
 
     public function delete()

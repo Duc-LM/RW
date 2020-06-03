@@ -1,6 +1,4 @@
 <?php
-require_once "Models/Post.php";
-
 class PostController
 {
     public function listPostByUser()

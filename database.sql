@@ -1,13 +1,6 @@
 
 -- Create the new database if it does not exist already
-IF NOT EXISTS (
-    SELECT name
-        FROM sys.databases
-        WHERE name = 'WS'
-)
-CREATE DATABASE WS
-Use WS;
-ALTER DATABASE WS CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
 CREATE TABLE users
 (
     id INT NOT NULL PRIMARY KEY  auto_increment, -- primary key column
@@ -15,7 +8,7 @@ CREATE TABLE users
     email VARCHAR(500),
     password VARCHAR(500),
     moblie VARCHAR(500)
-    -- specify more columns here
+
 );
 
 
@@ -25,7 +18,7 @@ CREATE TABLE posts
     user_id INT,
     title VARCHAR(500),
     author VARCHAR(500),
-    content VARCHAR,
+    content VARCHAR(10000),
     tag VARCHAR(500),
     image VARCHAR(500),
     -- specify more columns here

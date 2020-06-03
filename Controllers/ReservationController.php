@@ -1,5 +1,5 @@
 <?php
-require_once 'Models/Reservation.php';
+
 
 class ReservationController
 {
