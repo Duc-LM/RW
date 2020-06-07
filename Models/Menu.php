@@ -14,10 +14,10 @@ class Menu extends BaseConnect
         return $data;
     }
 
-    public function create_Menu($name, $price, $shortDesc, $category, $image)
+    public function create_Menu($name, $price, $category)
     {
-        $sql = "INSERT INTO menus(name,price,shortDesc,category,image)
-                    VALUES ('$name','$price', '$shortDesc', '$category', '$image')";
+        $sql = "INSERT INTO menus(name,price,category)
+                    VALUES ('$name','$price', '$category')";
         return $this->execute($sql);            
     }
 
@@ -32,10 +32,10 @@ class Menu extends BaseConnect
 	    return $data;
     }
 
-    public function update_Menu($id, $name, $price, $shortDesc, $category, $image)
+    public function update_Menu($id, $name, $price, $category)
     {
         $sql = "   UPDATE menus
-                    SET name = '$name', price = '$price', shortDesc = '$shortDesc', category = '$category', image = '$image'
+                    SET name = '$name', price = '$price', category = '$category'
                     WHERE id = '$id'  ";
         return $this->execute($sql);
     }

@@ -25,7 +25,6 @@ class ReservationController
         $phone = $_POST['phone'];
         $cus_name = $_POST['cus_name'];
         $no_of_guests = $_POST['no_of_guests'];
-        $type_combo = $_POST['type_combo'];
         
         //validation
         $err = array();
@@ -36,11 +35,10 @@ class ReservationController
         elseif (!is_numeric($phone)) $err = "Your phone must be numeric";
         if (empty($cus_name)) $err = "Please choose your name";
         if (empty($no_of_guests)) $err = "Please choose number of guests";
-        if (empty($type_combo)) $err = "Please choose type buffet";
 
         if(!$err)
         {
-            $reservation->createReservation($date,$time,$address,$phone,$cus_name,$no_of_guests,$type_combo);
+            $reservation->createReservation($date,$time,$address,$phone,$cus_name,$no_of_guests);
             require_once '';
         }
         else require_once '';
@@ -65,7 +63,6 @@ class ReservationController
         $phone = $_POST['phone'];
         $cus_name = $_POST['cus_name'];
         $no_of_guests = $_POST['no_of_guests'];
-        $type_combo = $_POST['type_combo'];
         
         //validation
         $err = array();
@@ -80,7 +77,7 @@ class ReservationController
 
         if(!$err)
         {
-            $reservation->updateReservattion($id,$date,$time,$address,$phone,$cus_name,$no_of_guests,$type_combo);
+            $reservation->updateReservattion($id,$date,$time,$address,$phone,$cus_name,$no_of_guests);
             require_once '';
         }
         else require_once '';

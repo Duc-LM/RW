@@ -1,16 +1,13 @@
 
--- Create the new database if it does not exist already
-
 CREATE TABLE users
 (
     id INT NOT NULL PRIMARY KEY  auto_increment, -- primary key column
     name VARCHAR(500) ,
     email VARCHAR(500),
     password VARCHAR(500),
-    moblie VARCHAR(500)
-
+    moblie VARCHAR(500),
+    role VARCHAR(50)
 );
-
 
 CREATE TABLE posts
 (
@@ -21,7 +18,6 @@ CREATE TABLE posts
     content VARCHAR(10000),
     tag VARCHAR(500),
     image VARCHAR(500),
-    -- specify more columns here
     FOREIGN KEY (user_id) REFERENCES users(id)  on delete cascade on update cascade
 );
 
@@ -48,8 +44,6 @@ CREATE TABLE menus
     id INT NOT NULL PRIMARY KEY  auto_increment, -- primary key column
     name VARCHAR(500),
     price double,
-    shortDesc VARCHAR(10000),
-    image VARCHAR(500),
     category VARCHAR(500)
 );
 
@@ -70,10 +64,9 @@ CREATE TABLE reservations
     phone VARCHAR(500),
     cus_name VARCHAR(500),
     no_of_guests int,
-    type_combo VARCHAR(500),
     status VARCHAR(500),
-    totalPrice double
 );
+
 
 
 

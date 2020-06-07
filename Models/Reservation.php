@@ -13,18 +13,18 @@ class Reservation extends BaseConnect
         return $data;
     }
 
-    public function createReservation($date,$time,$address,$phone,$cus_name,$no_of_guests,$type_combo)
+    public function createReservation($date,$time,$address,$phone,$cus_name,$no_of_guests)
     {
-        $sql = "INSERT INTO reservations(date,time,address,phone,cus_name,no_of_guests,type_combo,status)
-                    VALUES('$date','$time','$address','$phone','$cus_name','$no_of_guests','$type_combo','ordered')";
+        $sql = "INSERT INTO reservations(date,time,address,phone,cus_name,no_of_guests,status)
+                    VALUES('$date','$time','$address','$phone','$cus_name','$no_of_guests','ordered')";
         return $this->execute($sql);            
     }
 
-    public function updateReservattion($id,$date,$time,$address,$phone,$cus_name,$no_of_guests,$type_combo)
+    public function updateReservattion($id,$date,$time,$address,$phone,$cus_name,$no_of_guests)
     {
         $sql = " UPDATE reservations
                     SET date='$date', time='$time', address='$address', phone ='$phone', cus_name='$cus_name'
-                    , no_of_guests='$no_of_guests', type_combo='$type_combo'
+                    , no_of_guests='$no_of_guests'
                     WHERE id='$id' ";
         return $this->execute($sql);            
     }
