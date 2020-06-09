@@ -57,7 +57,11 @@ class PostController
 
     public function updateForm()
     {
-        require_once "";
+        $post = new Post();
+        $post = $post->get_Post_By_Id($_GET['id']);
+        if ($post['user_id'] === $_SESSION['user_id']  || $_SESSION['role'] === 'admin')
+                require_once "";
+        else require "";        
     }
 
     public function updatePost()
