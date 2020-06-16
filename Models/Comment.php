@@ -1,6 +1,7 @@
 <?php 
-class Comment extends BaseConnect
+class Comment extends Connect
 {
+   
     public function getCommentId($name,$email,$content)
     {
         $sql="SELECT * From comments where name = '$name', email = '$email' and content = '$content' ";

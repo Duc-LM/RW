@@ -6,7 +6,9 @@ class MenuController
     public function getAllMenu()
     {
         $menu = new Menu();
-        $menuList = $menu->get_All_Data();
+        $appetizerList = $menu->get_All_Category('appetizer');
+        $mainDishList  = $menu->get_All_Category('main dish');
+        $dessertList  = $menu->get_All_Category('dessert');
         require_once '';
     }
 

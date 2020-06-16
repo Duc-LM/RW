@@ -1,6 +1,7 @@
 <?php
-class Reservation extends BaseConnect
-{
+class Reservation extends Connect
+{ 
+    
     public function get_All_Data()
     {
         $sql = " SELECT * FROM reservations ORDER BY status";

@@ -1,6 +1,7 @@
 <?php
-class Feedback extends BaseConnect
+class Feedback extends Connect
 {
+   
     public function get_All_Data()
     {
         $sql = " SELECT * FROM feedbacks ";

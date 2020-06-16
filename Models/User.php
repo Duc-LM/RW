@@ -1,6 +1,7 @@
 <?php 
-class User extends BaseConnect
+class User  extends Connect
 {
+   
     public function get_All_Data()
     {
         $sql = " SELECT * FROM users ORDER BY role ASC";

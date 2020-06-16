@@ -1,6 +1,5 @@
-<?php 
-abstract class BaseConnect
-{
+<?php
+class Connect{
     private $hostname = 'localhost';
     private $username = 'root';
     private $password = 'root';
@@ -42,5 +41,4 @@ abstract class BaseConnect
         else $num = 0;
         return $num;
     }
-}
-?>
+} 

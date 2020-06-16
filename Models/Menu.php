@@ -1,7 +1,6 @@
 <?php
-class Menu extends BaseConnect
+class Menu extends Connect
 {
-
     public function get_All_Data()
     {
         $sql = " SELECT * FROM menus ";
@@ -23,7 +22,9 @@ class Menu extends BaseConnect
 
     public function get_Menu_By_Category($category)
     {
-        $sql = "SELECT * FROM menus WHERE category = '$category'";
+        $sql = "SELECT * FROM menus
+                ORDER BY category    
+                 WHERE category = '$category'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
 		    $data = mysqli_fetch_array($this->result);
@@ -80,5 +81,7 @@ class Menu extends BaseConnect
 			return true;
 		}
     }
+
+    
     
 }

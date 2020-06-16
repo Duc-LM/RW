@@ -1,6 +1,7 @@
 <?php
-class Post extends BaseConnect 
+class Post extends Connect
 {
+    
     public function get_All_Data()
     {
         $sql = " SELECT * FROM posts ORDER BY title";
