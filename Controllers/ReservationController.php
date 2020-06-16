@@ -73,8 +73,7 @@ class ReservationController
         elseif (!is_numeric($phone)) $err = "Your phone must be numeric";
         if (empty($cus_name)) $err = "Please choose your name";
         if (empty($no_of_guests)) $err = "Please choose number of guests";
-        if (empty($type_combo)) $err = "Please choose type buffet";
-
+        
         if(!$err)
         {
             $reservation->updateReservattion($id,$date,$time,$address,$phone,$cus_name,$no_of_guests);
