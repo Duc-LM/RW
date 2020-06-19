@@ -1,4 +1,5 @@
 <?php 
+require_once 'Models/Connect.php';
 class User  extends Connect
 {
    
@@ -49,13 +50,13 @@ class User  extends Connect
 
     public function login($email, $password)
     {
-        $sql = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'";
+        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
         return mysqli_num_rows($this->execute($sql));
     }
 
-    public function getDataByEmail($email)
+    public function getDataByEmail($email,$password)
     {
-	    $sql = "SELECT * FROM users WHERE email = '$email'";
+	    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
 		 $data = mysqli_fetch_array($this->result);

@@ -6,7 +6,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Create New User</strong>
+                                        <strong>Edit User</strong>
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -15,17 +15,15 @@
                                                     <label for="text-input" class=" form-control-label">Name</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="text-input" placeholder="Enter Name" class="form-control">
-                                                    <small class="help-block form-text">Please enter name</small>
+                                                    <input type="text" id="text-input" name="text-input" value="cadang" placeholder="Enter Name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="email-input" class=" form-control-label">Email</label>
+                                                    <label for="email-input" class="form-control-label">Email</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="email" id="email-input" name="email-input" placeholder="Enter Email" class="form-control">
-                                                    <small class="help-block form-text">Please enter your email</small>
+                                                    <input type="email" id="email-input" name="email-input" value="admin@example.com" disabled placeholder="Enter Email" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -33,12 +31,11 @@
                                                     <label for="role" class=" form-control-label">Role</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select name="role" id="selectLg" class="form-control-md form-control">
+                                                    <select name="role" id="selectLg" value="Admin" class="form-control-md form-control">
                                                         <option value="">Please select</option>
                                                         <option value="Admin">Admin</option>
                                                         <option value="Staff">Staff</option>
                                                     </select>
-                                                    <small class="help-block form-text">Please select role</small>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -46,17 +43,15 @@
                                                     <label for="password-input" class=" form-control-label">Password</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control">
-                                                    <small class="help-block form-text">Please enter a complex password</small>
+                                                    <input type="password" id="password-input" name="password-input" value="Password" disabled placeholder="Password" class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
+                                            <div class="row form-group" style="display:none;" >
                                                 <div class="col col-md-3">
                                                     <label for="password-input" class=" form-control-label">Confirm Password</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="password-input" placeholder="Confirm Password" class="form-control">
-                                                    <small class="help-block form-text">Please re-enter the password</small>
+                                                    <input type="password" id="password-input" name="password-input" value="Password" placeholder="Confirm Password" class="form-control">
                                                 </div>
                                             </div>
                                                                                                          

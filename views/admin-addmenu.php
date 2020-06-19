@@ -1,5 +1,5 @@
 <!-- MAIN CONTENT-->
-            <div class="main-content">
+<div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
@@ -15,51 +15,28 @@
                                                     <label for="text-input" class=" form-control-label">Name</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="text-input" placeholder="Enter Name" class="form-control">
+                                                    <input type="text" id="text-input" name="text-input" placeholder="Enter Name" class="form-control" required>
                                                     <small class="help-block form-text">Please enter name</small>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="email-input" class=" form-control-label">Email</label>
+                                                    <label for="number" class=" form-control-label">Price</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="email" id="email-input" name="email-input" placeholder="Enter Email" class="form-control">
-                                                    <small class="help-block form-text">Please enter your email</small>
+                                                    <input type="number" name="phone" placeholder="Enter Price" class="form-control" required>
+                                                    <small class="help-block form-text">Please enter price</small>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="role" class=" form-control-label">Role</label>
+                                                    <label for="category" class=" form-control-label">Category</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select name="role" id="selectLg" class="form-control-md form-control">
-                                                        <option value="">Please select</option>
-                                                        <option value="Admin">Admin</option>
-                                                        <option value="Staff">Staff</option>
-                                                    </select>
-                                                    <small class="help-block form-text">Please select role</small>
+                                                    <input type="text" name="category" placeholder="Category" class="form-control" required>
+                                                    <small class="help-block form-text">Please enter category</small>
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Password</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control">
-                                                    <small class="help-block form-text">Please enter a complex password</small>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Confirm Password</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="password-input" placeholder="Confirm Password" class="form-control">
-                                                    <small class="help-block form-text">Please re-enter the password</small>
-                                                </div>
-                                            </div>
-                                                                                                         
+                                            </div>                                                      
                                         </form>
                                     </div>
                                     <div class="card-footer">

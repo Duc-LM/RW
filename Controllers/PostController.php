@@ -1,4 +1,5 @@
 <?php
+require_once 'Models/Post.php';
 class PostController
 {
     public function listPostByUser()
@@ -12,8 +13,9 @@ class PostController
     public function listPost()
     {
         $post = new Post();
-        $listPost = $post->get_All_Data();
-        require_once "";
+        $post->_connect();
+        $postList = $post->get_All_Data();
+        require_once "views/posts.php";
     }
 
     public function createForm()

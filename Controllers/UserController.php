@@ -1,38 +1,38 @@
 
 <?php
-
+require_once 'Models/User.php';
 class UserController
 {   
 // LogIn LogOut Register    
     public function logInForm()
     {
-        require_once "Views/LoginForm.php";
+        require_once "views/login.php";
     }
 
     public function logIn()
     {
-        if (isset($_POST['email'], $_POST['password']))
-        {
+        $user = new User();
+        $user->_connect();
+
             $email = $_POST['email'];
-            $password = $_POST['password'];    
-            $userModel = new User();
-            $check = $userModel->login($email, $password);
+            $password = $_POST['password'];  
+            
+            $check = $user->login($email, $password);
             if ( $check === 0)
             {
                 $err = "Wrong email or password! ";
-                header('Location: index.php?controller=UserController&action=index');
+                header('Location: index.php?controller=UserController&action=logInForm');
             } else
             {
-                $user = $userModel->getDataByEmail($email);
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['role'] = $user['role'];
+                $user_ = $user->getDataByEmail($email,$password);
+                $_SESSION['user_id'] = $user_['id'];
+                $_SESSION['role'] = $user_['role'];
                 if ( $_SESSION['role'] === 'admin')
                     header('Location: index.php?controller=HomeController&action=adminPage');
                  elseif ( $_SESSION['role'] === 'user')
                  header('Location: index.php?controller=HomeController&action=userPage');
                 else header('Location: index.php?controller=UserController&action=logInForm ');
             };
-        }
     }
 
     public function registerForm()

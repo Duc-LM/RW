@@ -36,6 +36,7 @@
 </head>
 
 <body class="animsition">
+<?php require_once 'views/include/header.php'; ?>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -47,21 +48,14 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="index.php?controller=UserController&action=logIn" method="post">
                                 <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password" required>
                                 </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember">Remember Me
-                                    </label>
-                                </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>                       
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Sign in</button>                       
                             </form>
                         </div>
                     </div>
@@ -99,3 +93,4 @@
 
 </html>
 <!-- end document-->
+<?php require_once 'views/include/footer.php'; ?>  

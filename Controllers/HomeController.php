@@ -3,13 +3,13 @@ class HomeController
 {
     public function home()
     {
-        require_once "Views/home.php";
+        require_once "views/home.php";
     }
 
     public function adminPage()
     {
         if ($_SESSION['role'] === 'admin')
-           require_once "Views/Admin/AdminPage.php";
+           require_once "Views/Admin/admin-index.php";
         else header('Location: index.php');   
     }
 

@@ -1,4 +1,5 @@
 <?php
+require_once 'Models/Connect.php';
 class Menu extends Connect
 {
     public function get_All_Data()

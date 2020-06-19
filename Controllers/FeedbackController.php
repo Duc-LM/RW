@@ -1,9 +1,10 @@
 <?php
+require_once 'Models/Feedback.php';
 class FeedbackController
 {
     public function createForm()
     {
-        require_once '';
+        require_once 'views/contact.php';
     }
 
     public function createFeedback()

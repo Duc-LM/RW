@@ -1,7 +1,7 @@
 <?php
+require_once 'Models/Connect.php';
 class Post extends Connect
 {
-    
     public function get_All_Data()
     {
         $sql = " SELECT * FROM posts ORDER BY title";

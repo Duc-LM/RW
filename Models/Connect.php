@@ -1,5 +1,5 @@
 <?php
-class Connect{
+abstract class Connect{
     private $hostname = 'localhost';
     private $username = 'root';
     private $password = 'root';
@@ -8,7 +8,7 @@ class Connect{
     private $con = null;
     private $result = null;
 
-    public function connect()
+    public function _connect()
     {
         $this->con =  mysqli_connect($this->hostname, $this->username, $this->password, $this->dbname);
         if ($this->con)

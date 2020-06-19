@@ -1,4 +1,5 @@
 <?php
+require_once 'Models/Connect.php';
 class Feedback extends Connect
 {
    

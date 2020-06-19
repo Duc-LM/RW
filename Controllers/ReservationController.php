@@ -12,7 +12,7 @@ class ReservationController
 
     public function createForm()
     {
-        require_once '';
+        require_once 'views/reservation.php';
     }
 
     public function createReservation()

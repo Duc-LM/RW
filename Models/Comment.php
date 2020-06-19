@@ -1,4 +1,5 @@
 <?php 
+require_once 'Models/Connect.php';
 class Comment extends Connect
 {
    

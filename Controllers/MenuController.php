@@ -1,15 +1,16 @@
 <?php
-
-
+include_once 'Models/Menu.php';
 class MenuController
 {
     public function getAllMenu()
     {
         $menu = new Menu();
+        $menu->_connect();
         $appetizerList = $menu->get_All_Category('appetizer');
         $mainDishList  = $menu->get_All_Category('main dish');
         $dessertList  = $menu->get_All_Category('dessert');
-        require_once '';
+        $drinksList = $menu->get_All_Category('drinks');
+        require_once 'views/menu.php';
     }
 
     public function getMenuById()

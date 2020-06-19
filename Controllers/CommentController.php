@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Models/Comment.php';
 class CommentController
 {
     public function createForm()
