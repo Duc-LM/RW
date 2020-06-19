@@ -17,7 +17,7 @@ class Feedback extends Connect
 
     public function create_Feedback($name, $email, $content)
     {
-        $sql = "INSERT INTO reservations(name,email,content)
+        $sql = "INSERT INTO feedbacks(name,email,content)
                 VALUES('$name','$email','$content')";
         return $this->execute($sql);  
     }

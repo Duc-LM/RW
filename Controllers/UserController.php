@@ -27,11 +27,10 @@ class UserController
                 $user_ = $user->getDataByEmail($email,$password);
                 $_SESSION['user_id'] = $user_['id'];
                 $_SESSION['role'] = $user_['role'];
-                if ( $_SESSION['role'] === 'admin')
+                if ( $user_['role'] === 'admin')
                     header('Location: index.php?controller=HomeController&action=adminPage');
                  elseif ( $_SESSION['role'] === 'user')
                  header('Location: index.php?controller=HomeController&action=userPage');
-                else header('Location: index.php?controller=UserController&action=logInForm ');
             };
     }
 

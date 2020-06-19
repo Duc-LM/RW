@@ -55,19 +55,19 @@ class User  extends Connect
     }
 
     public function getDataByEmail($email,$password)
-    {
-	    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-	    $this->execute($sql);
-	    if ($this->num_rows() != 0)
-		 $data = mysqli_fetch_array($this->result);
-	    else
-		    $data = 0;
-	    return $data;
-    }
+{
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $this->execute($sql);
+    if ($this->num_rows() != 0)
+        $data = mysqli_fetch_array( $this->execute($sql));
+    else
+        $data = 0;
+    return $data;
+}
 
     public function checkEmail($email)
     {
-        $sql = "select * from users where email = '$email'";
+        $sql = "SELECT * from users where email = '$email' ";
 		$this->execute($sql);
 		if($this->num_rows()===0){
 			return false;

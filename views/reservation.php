@@ -5,22 +5,22 @@
       <div class="row">
         <div class="col-12">
       <div class="form-reservation m-5">
-        <form action="#" method="post">
+        <form action="index.php?controller=ReservationController&action=createReservation" method="post">
             <div class="header-container">
                 <h1 class="header">Online Reservation</h1>
             </div>
                 <div class="feedback-form">
                     <div class="form-group">
                         <label for="Name">Customer Name</label>
-                        <input type="text" class="form-control" name="cus_name" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" name="cus_name" aria-describedby="emailHelp" required>
                     </div>
                     <div class="form-group">
                         <label for="Phone">Phone</label>
-                        <input type="tel" class="form-control" name="phone" >
+                        <input type="tel" class="form-control" name="phone" required >
                     </div>
                     <div class="form-group">
                         <label for="Guests">Number of Guests</label>
-                        <input type="number" class="form-control" name="no_of_guest" required>
+                        <input type="number" class="form-control" name="no_of_guests" required>
                     </div>
                     <div class="form-group">
                         <label for="Date">Date</label>
@@ -30,10 +30,18 @@
                         <label for="Time">Time</label>
                         <input type="time" class="form-control" name="time" min="10:00" max="21:00" required>
                     </div>
-                    <div class="form-group">
-                        <label for="Phone">Message</label>
-                        <textarea class="form-control" name="message" rows="5"></textarea>
-                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="address">Restaurant:</label>
+                        </div>
+                    <select class="custom-select" id="address" name="address">
+                        <option selected>Choose...</option>
+                        <option value="Aeon Mall">Aeon Mall</option>
+                        <option value="Vincom Center">Vincom Center</option>
+                        <option value="Royal City">Royal City</option>
+                    </select>
+</div>
+
                       <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>

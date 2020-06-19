@@ -10,23 +10,19 @@ class FeedbackController
     public function createFeedback()
     {
         $feedback = new Feedback();
-
+        $feedback->_connect();
         $name = $_POST['name'];
         $email = $_POST['email'];
         $content= $_POST['content'];
 
-        //validation
-        $err = array();
-        if (empty($name)) $err['name'] = "Please enter your name";
-        if (empty($email)) $err['email'] = "Please enter your email";
-        if (empty($content)) $err['email'] = "Please enter your feedback";
-
-        if(!$err)
-        {
             $feedback->create_Feedback($name,$email,$content);
-            header('Location: index.php');
-        }
-        else header('Location: index.php?controller=FeedbackController&action=createForm');
+            ?>
+			<script>
+				window.alert("Create Successfully! Thanks for your feedback.");
+			</script>
+			<meta http-equiv="refresh" content="1;url=index.php" />
+			<?php
+       
     }
 
     public function getAllFeedback()

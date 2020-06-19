@@ -1,6 +1,6 @@
 <?php
 
-
+require_once 'Models/Reservation.php';
 class ReservationController
 {
     public function getAllReservation()
@@ -18,7 +18,7 @@ class ReservationController
     public function createReservation()
     {
         $reservation = new Reservation();
-
+        $reservation->_connect();
         $date = $_POST['date'];
         $time = $_POST['time'];
         $address = $_POST['address'];
@@ -28,20 +28,19 @@ class ReservationController
         
         //validation
         $err = array();
-        if (empty($date)) $err = "Please choose date";
-        if (empty($time)) $err = "Please choose time";
-        if (empty($address)) $err = "Please choose address";
-        if (empty($phone)) $err = "Please fill phone";
-        elseif (!is_numeric($phone)) $err = "Your phone must be numeric";
-        if (empty($cus_name)) $err = "Please choose your name";
-        if (empty($no_of_guests)) $err = "Please choose number of guests";
-
+        if (!is_numeric($phone)) $err = "Your phone must be numeric";
+        
         if(!$err)
         {
             $reservation->createReservation($date,$time,$address,$phone,$cus_name,$no_of_guests);
-            require_once '';
+            ?>
+			<script>
+				window.alert("Create Successfully!");
+			</script>
+			<meta http-equiv="refresh" content="1;url=index.php" />
+			<?php
         }
-        else require_once '';
+        else require_once 'views/reservation.php';
     }
 
     public function updateForm()

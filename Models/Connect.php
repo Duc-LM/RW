@@ -3,7 +3,7 @@ abstract class Connect{
     private $hostname = 'localhost';
     private $username = 'root';
     private $password = 'root';
-    private $dbname = 'RW';
+    private $dbname = 'rw';
 
     private $con = null;
     private $result = null;

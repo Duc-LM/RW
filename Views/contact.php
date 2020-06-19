@@ -5,22 +5,22 @@
       <div class="row">
         <div class="col-12">
             <div class="feedback m-5">
-        <form action="#" method="post">
+        <form action="index.php?controller=FeedbackController&action=createFeedback" method="post">
             <div class="header-container">
                 <h1 class="header">Feedback/Contact</h1>
             </div>
                 <div class="feedback-form">
                     <div class="form-group">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" name="name" aria-describedby="emailHelp" required>
                     </div>
                       <div class="form-group">
                         <label for="Email">Email</label>
-                        <input type="email" class="form-control" name="email" >
+                        <input type="email" class="form-control" name="email" required>
                       </div>
                       <div class="form-group">
-                        <label for="Phone">Message</label>
-                        <textarea class="form-control" rows="5" name="content"></textarea>
+                        <label for="content">Message</label>
+                        <textarea class="form-control" rows="5" name="content" required></textarea>
                       </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
             </div>
