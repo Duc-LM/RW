@@ -42,7 +42,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="admin-index.html">
+                        <a class="logo" href="index.php?controller=HomeController&action=adminPage">
                             <img src="../resources/img/logo.png" alt="logo" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -56,14 +56,12 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
+                    <?php if ($_SESSION['role'] === 'admin') {?>
                         <li>
-                        <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="index.php?controller=UserController&action=getAllUsers">
                                 <i class="fas fa-users"></i>Users</a>
                         </li>
+                    <?php }?>
                         <li>
                             <a href="#">
                                 <i class="fas fa-book"></i>Reservations</a>
@@ -80,10 +78,7 @@
                             <a href="#">
                                 <i class="fas fa-comment"></i>Feedback</a>
                         </li>
-                        <li>
-                            <a href="home.html">
-                                <i class="fas fa-reply"></i>Back to Homepage</a>
-                        </li>  
+                        
                     </ul>
                 </div>
             </nav>
@@ -93,21 +88,19 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="admin-index.html">
+                <a href="index.php?controller=HomeController&action=adminPage">
                     <img src="../resources/img/logo.png" alt="logo" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
+                    <?php if ($_SESSION['role'] === 'admin') {?>
                         <li>
-                        <a href="#">
-                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="index.php?controller=UserController&action=getAllUsers">
                                 <i class="fas fa-users"></i>Users</a>
                         </li>
+                    <?php }?>    
                         <li>
                             <a href="#">
                                 <i class="fas fa-book"></i>Reservations</a>
@@ -124,10 +117,7 @@
                             <a href="#">
                                 <i class="fas fa-comment"></i>Feedback</a>
                         </li>
-                        <li>
-                            <a href="home.html">
-                                <i class="fas fa-reply"></i>Back to Homepage</a>
-                        </li>                      
+                                           
                     </ul>
                 </nav>
             </div>
@@ -154,38 +144,19 @@
                                             <img src="../resources/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div> -->
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">admin</a>
+                                            <a class="js-acc-btn" href="#"><?php echo ucwords($_SESSION['role'])?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <!-- <div class="image">
-                                                    <a href="#">
-                                                        <img src="../resources/images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
-                                                </div> -->
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">admin</a>
-                                                    </h5>
-                                                    <span class="email">tranvandan1@example.com</span>
-                                                </div>
-                                            </div>
+            
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
+                                                
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="home.html">
+                                                <a href="index.php?controller=UserController&action=logOut">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

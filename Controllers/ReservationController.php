@@ -84,13 +84,15 @@ class ReservationController
     public function deleteReservation($id)
     {
         $reservation = new Reservation();
-        $reservation->deleteReservation($id);
+        $reservation->_connect()
+;        $reservation->deleteReservation($id);
         require_once '';
     }
 
     public function changeStatus()
     {
         $reservation = new Reservation();
+        $reservation->_connect();
         $id = $_GET['id'];
         $status = $_POST['status'];
         $reservation->changeStatus($id,$status);

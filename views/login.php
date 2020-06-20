@@ -53,7 +53,7 @@
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password" required>
+                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password" pattern=".{6,}" required>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Sign in</button>                       
                             </form>

@@ -27,10 +27,8 @@ class UserController
                 $user_ = $user->getDataByEmail($email,$password);
                 $_SESSION['user_id'] = $user_['id'];
                 $_SESSION['role'] = $user_['role'];
-                if ( $user_['role'] === 'admin')
+                if ( $user_['role'] === 'admin' ||  $_SESSION['role'] === 'staff')
                     header('Location: index.php?controller=HomeController&action=adminPage');
-                 elseif ( $_SESSION['role'] === 'user')
-                 header('Location: index.php?controller=HomeController&action=userPage');
             };
     }
 
@@ -68,33 +66,59 @@ class UserController
     public function getAllUsers()
     {
         $userModel = new User();
+        $userModel->_connect();
         $userList = $userModel->get_All_Data();
-        require_once "Views/Admin/UsersList.php";
+        require_once "views/admin-users.php";
     }
 
     public function updateForm()
     {
         $userModel = new User();
+        $userModel->_connect();
         $user = $userModel->getDataById($_GET['user_id']);
-        require_once "Views/User/UpdateForm.php";
+        require_once "Views/admin-userdetails.php";
     }
 
     public function update()
     {
         $userModel = new User();
-        $user_id = $_GET['id'];
+        $userModel->_connect();
+        $user_id = $_GET['user_id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $pass1 = $_POST['pass1'];
-        $pass2 = $_POST['pass2'];
+        $phone = $_POST['mobile'];
+        if (isset( $_POST['confirm'],$_POST['confirm_password']))
+        {
+        $new_password = $_POST['new_password'];
+        $confirm_password = $_POST['confirm_password'];
       
-        if ($pass1 === $pass2)
-            $userModel->update_User($user_id,$name,$email,$pass1);    
+        if ($confirm_password === $new_password )
+           {
+            $userModel->update_User($user_id,$name,$email,$new_password,$phone);   
+            if ($_SESSION['role'] === 'admin')
+            {
+                $role = $_POST['role'];
+                $userModel->changeRole($user_id,$role);
+            }
+            header('location: index.php?controller=UserController&action=getAllUsers');
+           }  
         else 
         {
             $err = "Please fill in password again";
-            require_once '';
-        }    
+            require_once "views/admin-userdetails.php";
+        }  
+        }else
+        {
+            $userModel->update_User_($user_id,$name,$email,$phone); 
+            if ($_SESSION['role'] === 'admin')
+            {
+                $role = $_POST['role'];
+                $userModel->changeRole($user_id,$role);
+            }
+            header('location: index.php?controller=UserController&action=getAllUsers');
+            
+        }
+        
     }
 
     public function delete()

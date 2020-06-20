@@ -20,22 +20,30 @@ class User  extends Connect
         $sql = "SELECT * FROM users WHERE id = '$user_id'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
-		    $data = mysqli_fetch_array($this->result);
+		    $data = mysqli_fetch_array( $this->execute($sql));
 	    else
 		    $data = 0;
 	    return $data;
     }
 
-    public function create_User($name, $email, $password)
+    public function create_User($name, $email, $role,$password)
     {
-        $sql = "INSERT INTO `users`(name, email,password, role) VALUES ('$name', '$email','md5($password)','user')";
+        $sql = "INSERT INTO `users`(name, email,password, role) VALUES ('$name', '$email','$password','$role')";
         return $this->execute($sql);
     }
 
-    public function update_User($user_id, $name, $email, $password)
+    public function update_User($user_id, $name, $email, $password, $phone)
     {
         $sql = "   UPDATE users
-                    SET  name = '$name', email  = '$email', password = '$password'
+                    SET  name = '$name', email  = '$email', password = '$password', mobile = '$phone'
+                    WHERE id = '$user_id'  ";
+
+        return $this->execute($sql);
+    }
+    public function update_User_($user_id, $name, $email,$phone)
+    {
+        $sql = "   UPDATE users
+                    SET  name = '$name', email  = '$email', mobile = '$phone'
                     WHERE id = '$user_id'  ";
 
         return $this->execute($sql);
@@ -81,11 +89,19 @@ class User  extends Connect
 	$sql = "SELECT * FROM users WHERE id = '$user_id'";
 	$this->execute($sql);
 	    if ($this->num_rows() != 0)
-		    $data = mysqli_fetch_array($this->result);
+		    $data = mysqli_fetch_array($this->execute($sql));
 	    else
 		    $data = 0;
 	return $data;
     }   
+
+    public function changeRole($user_id,$role)
+        {
+            $sql = "   UPDATE users
+                        SET role = '$role'
+                            WHERE id = '$user_id'  ";
+            return $this->execute($sql);
+        }
 
   
 

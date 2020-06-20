@@ -8,17 +8,11 @@ class HomeController
 
     public function adminPage()
     {
-        if ($_SESSION['role'] === 'admin')
+        if ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'staff')
            require_once "Views/admin-index.php";
         else header('Location: index.php');   
     }
 
-    public function userPage()
-    {
-        if ($_SESSION['role'] === 'user')
-           require_once "Views/UserPage.php";
-        else header('Location: index.php');   
-    }
 
 
 }
