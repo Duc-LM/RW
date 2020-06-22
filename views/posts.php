@@ -15,7 +15,7 @@
                     <div class="col-md-6">
                         <h1 class="post-header"><?php echo $post['title'] ?></h1>
                         <p class="author">Posted by <?php echo $post['author'] ?></p>
-                        <p class="shortContent"><?php echo $post['content'] ?></p>
+                        <p class="shortContent"><?php echo strtolower($post['content']) ?></p>
                         <a href="index.php?controller=PostController&action=viewPost&id=<?php echo $post['id']?>" class="for-more">MORE</a>
 
                     <?php  }  ?>
