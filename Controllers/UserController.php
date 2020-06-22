@@ -34,26 +34,30 @@ class UserController
 
     public function registerForm()
     {
-        require_once "Views/RegisterForm.php";
+        require_once "views/admin-addusers.php";
     }
 
     public function registerHandle()
     {   
         $userModel = new User();
+        $userModel->_connect();
         $email = $_POST['email'];
         $name = $_POST['name'];
+        $mobile = $_POST['mobile'];
+        $role = $_POST['role'];
         $password = $_POST['password'];
-        if ($userModel->checkEmail($email))
+        $confirm_password = $_POST['confirm_password'];
+        //validation
+        $err = array();
+        if ($userModel->checkEmail($email)) $err['email'] = 'Email already exists';
+        if ($password !== $confirm_password) $err['password'] = 'The two passwords are not the same';
+
+        if (!$err)
         {
-            $updatelog = "Email Existed!";
-            header('Location: index.php?controller=UserController&action=registerForm');
+            $userModel->create_User($name,$email,$password,$mobile,$role);
+            header('Location: index.php?controller=UserController&action=getAllUsers');
         }
-        else
-        {
-            $userModel->create_User($name,$email,$password);
-            $success = "Register Successfully";
-            header('Location: index.php?controller=UserController&action=logInForm');
-        }
+        else require_once "views/admin-addusers.php";
     }
 
     public function logOut()
@@ -87,44 +91,34 @@ class UserController
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['mobile'];
-        if (isset( $_POST['confirm'],$_POST['confirm_password']))
-        {
-        $new_password = $_POST['new_password'];
+        $new_password =  $_POST['new_password'];
         $confirm_password = $_POST['confirm_password'];
-      
-        if ($confirm_password === $new_password )
-           {
-            $userModel->update_User($user_id,$name,$email,$new_password,$phone);   
-            if ($_SESSION['role'] === 'admin')
-            {
-                $role = $_POST['role'];
-                $userModel->changeRole($user_id,$role);
-            }
-            header('location: index.php?controller=UserController&action=getAllUsers');
-           }  
-        else 
+
+        if ($new_password === $confirm_password)
         {
-            $err = "Please fill in password again";
-            require_once "views/admin-userdetails.php";
-        }  
-        }else
-        {
-            $userModel->update_User_($user_id,$name,$email,$phone); 
+            $userModel->update_User($user_id,$name,$email,$new_password,$phone);
             if ($_SESSION['role'] === 'admin')
-            {
-                $role = $_POST['role'];
-                $userModel->changeRole($user_id,$role);
-            }
-            header('location: index.php?controller=UserController&action=getAllUsers');
-            
+                {
+                    $role = $_POST['role'];
+                    $userModel->changeRole($user_id,$role);
+                }
+             header('location: index.php?controller=UserController&action=getAllUsers');
+          
+        }
+        else
+        {
+            $err = "The two passwords are not the same";
+            $user = $userModel->getDataById($user_id);
+            require_once "Views/admin-userdetails.php";
         }
         
     }
 
     public function delete()
     {
-        $user_id = $_POST['id'];
+        $user_id = $_GET['user_id'];
         $userModel = new User();
+        $userModel->_connect();
         $userModel->delete_User($user_id);
         header('Location: index.php?controller=UserController&action=getAllUsers');
     }

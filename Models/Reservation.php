@@ -5,7 +5,7 @@ class Reservation extends Connect
     
     public function get_All_Data()
     {
-        $sql = " SELECT * FROM reservations ORDER BY status";
+        $sql = " SELECT * FROM reservations ORDER BY date ASC";
         $this->execute($sql);
         if ($this->num_rows() === 0)
             $data = 0;

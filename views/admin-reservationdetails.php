@@ -1,3 +1,5 @@
+<?php  require_once 'views/include/admin-header.php';?>
+
 <!-- MAIN CONTENT-->
 <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -89,3 +91,4 @@
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
+ <?php  require_once 'views/include/admin-footer.php';?>

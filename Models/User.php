@@ -26,9 +26,9 @@ class User  extends Connect
 	    return $data;
     }
 
-    public function create_User($name, $email, $role,$password)
+    public function create_User($name, $email,$password,$mobile,$role)
     {
-        $sql = "INSERT INTO `users`(name, email,password, role) VALUES ('$name', '$email','$password','$role')";
+        $sql = "INSERT INTO `users`(name, email,password,mobile,role) VALUES ('$name', '$email','$password','$mobile','$role')";
         return $this->execute($sql);
     }
 

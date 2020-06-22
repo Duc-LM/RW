@@ -5,8 +5,13 @@ class PostController
     public function listPostByUser()
     {
         $post = new Post();
-        $user_id = $_POST['user_id'];
-        $listPost = $post->get_All_Data_Of_User($user_id);
+        $post->_connect();
+        if ($_SESSION['role'] === 'admin')
+            $postList = $post->get_All_Data();
+        else{
+            $user_id = $_POST['user_id'];
+            $postList = $post->get_All_Data_Of_User($user_id);
+        }
         require_once "";
     }
 

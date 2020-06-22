@@ -6,8 +6,9 @@ class ReservationController
     public function getAllReservation()
     {
         $reservation = new Reservation();
+        $reservation->_connect();
         $reservationList = $reservation->get_All_Data();
-        require_once '';
+        require_once 'views/admin-reservations.php';
     }
 
     public function createForm()
@@ -46,9 +47,10 @@ class ReservationController
     public function updateForm()
     {
         $reservation = new Reservation();
+        $reservation->_connect();
         $id = $_GET['id'];
         $reservation = $reservation->get_Reservation_By_Id($id);
-        require_once '';
+        require_once 'views/admin-reservationdetails.php';
     }
 
     public function updateReservation()

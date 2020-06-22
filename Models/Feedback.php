@@ -5,7 +5,7 @@ class Feedback extends Connect
    
     public function get_All_Data()
     {
-        $sql = " SELECT * FROM feedbacks ";
+        $sql = " SELECT * FROM feedbacks ORDER BY id DESC ";
         $this->execute($sql);
         if ($this->num_rows() === 0)
             $data = 0;

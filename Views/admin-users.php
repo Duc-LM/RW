@@ -40,7 +40,9 @@
                                                     <td>
                                                         <a href="index.php?controller=UserController&action=updateForm&user_id=<?php echo $user['id'] ?>">
                                                             <button type="button" class="btn btn-success">Edit</button></a>
-                                                        <button type="button" class="btn btn-danger">Delete</button>
+                                                        <a href="index.php?controller=UserController&action=delete&user_id=<?php echo $user['id'] ?>">
+                                                            <button type="button" class="btn btn-danger">Delete</button></a>
+                                    
                                                     </td>
                                                 </tr>
                                             <?php } ?>

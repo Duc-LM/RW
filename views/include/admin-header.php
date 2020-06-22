@@ -63,11 +63,11 @@
                         </li>
                     <?php }?>
                         <li>
-                            <a href="#">
+                        <a href="index.php?controller=ReservationController&action=getAllReservation">
                                 <i class="fas fa-book"></i>Reservations</a>
-                        </li>
+                        </li> 
                         <li>
-                            <a href="#">
+                            <a href="index.php?controller=MenuController&action=getAllMenu">
                                 <i class="fas fa-calendar-o"></i>Menu</a>
                         </li>
                         <li>
@@ -75,7 +75,7 @@
                                 <i class="fas fa-bullhorn"></i>Post Announcement</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="index.php?controller=FeedbackController&action=getAllFeedback">
                                 <i class="fas fa-comment"></i>Feedback</a>
                         </li>
                         
@@ -102,19 +102,19 @@
                         </li>
                     <?php }?>    
                         <li>
-                            <a href="#">
+                            <a href="index.php?controller=ReservationController&action=getAllReservation">
                                 <i class="fas fa-book"></i>Reservations</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="index.php?controller=MenuController&action=getAllMenu">
                                 <i class="fas fa-calendar-o"></i>Menu</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="">
                                 <i class="fas fa-bullhorn"></i>Post Announcement</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="index.php?controller=FeedbackController&action=getAllFeedback">
                                 <i class="fas fa-comment"></i>Feedback</a>
                         </li>
                                            

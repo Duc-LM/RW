@@ -1,3 +1,4 @@
+<?php  require_once 'views/include/admin-header.php';?>
  <!-- MAIN CONTENT-->
  <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -7,7 +8,7 @@
                                 <!-- DATA-->
                                 <div class="user-data m-b-30">
                                     <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-account-calendar"></i>user data</h3>
+                                        <i class="zmdi zmdi-account-calendar"></i>user feedback:</h3>
                                         <hr>
                                     <div class="table-responsive table-data">
                                         <table class="table">
@@ -19,28 +20,19 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php foreach ( (array)$feedbackList as $feedback) {?>
                                                 <tr>
                                                     <td>
-                                                        Lai Minh Duc
+                                                        <?php echo $feedback['name']; ?>
                                                     </td>
                                                     <td>
-                                                        laiminhduc99@example.com
+                                                    <?php echo $feedback['email']; ?>
                                                     </td>
                                                     <td>
-                                                        Very nice restaurant.
+                                                    <?php echo $feedback['content']; ?>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        Nguyen Hai Dang
-                                                    </td>
-                                                    <td>
-                                                        dangnguyen130399@example.com
-                                                    </td>
-                                                    <td>
-                                                        Great food, great service.
-                                                    </td>
-                                                </tr>
+                                            <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -63,3 +55,4 @@
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
+            <?php  require_once 'views/include/admin-footer.php';?>

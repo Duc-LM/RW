@@ -59,7 +59,7 @@ class Menu extends Connect
         $sql = "SELECT * FROM menus WHERE id = '$id'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
-		    $data = mysqli_fetch_array($this->result);
+		    $data = mysqli_fetch_array($this->execute($sql));
 	    else
 		    $data = 0;
 	    return $data;

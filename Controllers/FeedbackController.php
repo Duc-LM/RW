@@ -28,8 +28,9 @@ class FeedbackController
     public function getAllFeedback()
     {
         $feedback = new Feedback();
+        $feedback->_connect();
         $feedbackList = $feedback->get_All_Data();
-        require_once '';
+        require_once 'views/admin-feedbacks.php';
     }
     
 }
