@@ -1,5 +1,6 @@
 <!-- MAIN CONTENT-->
-<?php require_once 'views/include/admin-header.php'; ?>
+<?php if (isset($_SESSION['role'])) {
+    require_once 'views/include/admin-header.php'; ?>
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -71,4 +72,4 @@
 </div>
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
-<?php require_once 'views/include/admin-footer.php'; ?>
+<?php require_once 'views/include/admin-footer.php'; } else header('index.php');?>

@@ -1,5 +1,5 @@
-<?php if (isset($_SESSION['role'])) {  require_once 'views/include/admin-header.php';?>
  <!-- MAIN CONTENT-->
+ <?php  if (isset($_SESSION['role'])) {require_once 'views/include/admin-header.php';?>
  <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -8,31 +8,37 @@
                                 <!-- DATA-->
                                 <div class="user-data m-b-30">
                                     <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-account-calendar"></i>user feedback:</h3>
+                                        <i class="zmdi zmdi-account-calendar"></i>Posts:</h3>
                                         <hr>
+                                        <a href="index.php?controller=PostController&action=createForm" style="position: relative; float:right; margin-right: 10px"><button type="button" class="btn btn-primary">Create</button></a>
                                     <div class="table-responsive table-data">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <td>name</td>
-                                                    <td>email</td>
-                                                    <td>message</td>
+                                                    <td>title</td>
+                                                    <td>author</td>
+                                                    <td>actions</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach ( (array)$feedbackList as $feedback) {?>
+                                                <?php foreach((array)$postList as $post ) {?>
                                                 <tr>
                                                     <td>
-                                                        <?php echo $feedback['name']; ?>
+                                                       <?php echo $post['title']; ?>
                                                     </td>
                                                     <td>
-                                                    <?php echo $feedback['email']; ?>
+                                                    <?php echo $post['author']; ?>
                                                     </td>
+                    
                                                     <td>
-                                                    <?php echo $feedback['content']; ?>
+                                                        <a href="index.php?controller=PostController&action=updateForm&id=<?php echo $post['id'] ?>">
+                                                        <button type="button" class="btn btn-success">Edit</button></a>
+                                                        <a href="index.php?controller=PostController&action=deletePost&id=<?php echo $post['id'] ?>">
+                                                        <button type="button" class="btn btn-danger">Delete</button></a>
+                                                        
                                                     </td>
                                                 </tr>
-                                            <?php } ?>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -55,4 +61,4 @@
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
-            <?php  require_once 'views/include/admin-footer.php';} else header('index.php');?>
+<?php  require_once 'views/include/admin-footer.php';} else header('index.php')?>

@@ -1,5 +1,6 @@
 <?php
 require_once 'Models/Post.php';
+require_once 'Models/Comment.php';
 class PostController
 {
     public function listPostByUser()
@@ -9,10 +10,10 @@ class PostController
         if ($_SESSION['role'] === 'admin')
             $postList = $post->get_All_Data();
         else{
-            $user_id = $_POST['user_id'];
+            $user_id = $_SESSION['user_id'];
             $postList = $post->get_All_Data_Of_User($user_id);
-        }
-        require_once "";
+        };
+        require_once 'views/admin-posts.php';
     }
 
     public function listPost()
@@ -22,16 +23,26 @@ class PostController
         $postList = $post->get_All_Data();
         require_once "views/posts.php";
     }
+    public function viewPost()
+    {
+        $Post = new Post();
+        $Comment = new Comment();
+        $Post->_connect();
+        $Comment->_connect();
+        $post = $Post->get_Post_By_Id($_GET['id']);
+        $commentList = $Comment->get_Comment_From_Post($_GET['id']);
+        require "views/posts-details.php";  
+    }
 
     public function createForm()
     {
-        require_once "";
+        require_once 'views/admin-addpost.php';
     }
 
     public function createPost()
     {
         $post = new Post();
-
+        $post->_connect();
         $v1 = rand(1111, 9999);
         $v2 = rand(1111, 9999);
         $v3 = $v1 . $v2;
@@ -40,42 +51,28 @@ class PostController
         $dst = "./images/" . $v3 . $fnm;
         $image = "images/" . $v3 . $fnm;
 
-        $title = trim($_POST['title']);
-        $author = trim($_POST['author']);
-        $content = trim($_POST['content']);
+        $title = ($_POST['title']);
+        $author = ($_POST['author']);
+        $content =  $_POST['content'];
         $tag = $_POST['tag'];
-
-        // validation
-        $err = array();
-        if (empty($title)) $err['title'] = "Please fill tittle";
-        if (empty($author)) $err['author'] = "Please fill author name";
-        if (empty($content)) $err['content'] = "Please fill content";
-        if (empty($fnm )) $err['image']='Please choose image';
-
-        //
-        if (!$err)
-        {
             move_uploaded_file($_FILES["image"]["tmp_name"], $dst);
             $post->create_Post($title,$_SESSION['user_id'], $author, $content, $tag, $image);
-            require_once "";
-        }
-        else require_once "";
+            header('Location: index.php?controller=PostController&action=listPostByUser');
+
     }
 
     public function updateForm()
     {
-        $post = new Post();
-        $post = $post->get_Post_By_Id($_GET['id']);
-        if ($post['user_id'] === $_SESSION['user_id']  || $_SESSION['role'] === 'admin')
-                require_once "";
-        else require "";        
+        $Post = new Post();
+        $Post->_connect();
+        $post = $Post->get_Post_By_Id($_GET['id']);
+        require "views/admin-editpost.php";        
     }
 
     public function updatePost()
     {
-        $post = new Post();
-
-        $post_id = $_GET['id'];
+        $Post = new Post();
+        $Post->_connect();
         $v1 = rand(1111, 9999);
         $v2 = rand(1111, 9999);
         $v3 = $v1 . $v2;
@@ -84,26 +81,15 @@ class PostController
         $dst = "./images/" . $v3 . $fnm;
         $image = "images/" . $v3 . $fnm;
 
-        $title = trim($_POST['title']);
-        $author = trim($_POST['author']);
-        $content = trim($_POST['content']);
+        $title = ($_POST['title']);
+        $author = ($_POST['author']);
+        $content =  $_POST['content'];
         $tag = $_POST['tag'];
 
-        // validation
-        $err = array();
-        if (empty($title)) $err['title'] = "Please fill tittle";
-        if (empty($author)) $err['author'] = "Please fill author name";
-        if (empty($content)) $err['content'] = "Please fill content";
-        if (empty($fnm )) $err['image']='Please choose image';
-
-        //
-        if (!$err)
-        {
-            move_uploaded_file($_FILES["image"]["tmp_name"], $dst);
-            $post->update_Post($post_id, $title, $author, $content, $tag, $image);
-            require_once "";
-        }
-        else require_once "";
+        $post = $Post->get_Post_By_Id($_GET['id']);
+        unlink($post['image']);
+        $Post->update_Post($_GET['id'],$title,$author,$content,$tag,$image);
+        header('Location: index.php?controller=PostController&action=listPostByUser');
     }
 
     public function deletePost()

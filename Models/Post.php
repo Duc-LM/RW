@@ -31,7 +31,7 @@ class Post extends Connect
         $sql = "SELECT * FROM posts WHERE id = '$post_id'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
-		    $data = mysqli_fetch_array($this->result);
+		    $data = mysqli_fetch_array($this->execute($sql));
 	    else
 		    $data = 0;
 	    return $data;
@@ -39,8 +39,8 @@ class Post extends Connect
 
     public function create_Post($title,$user_id, $author, $content, $tag, $image)
     {
-        $sql = "INSERT INTO `posts`(title,user_id, author, content, tag, image, status) 
-                    VALUES ('$title','$user_id', '$author', '$content', '$tag', '$image','Pending accept')";
+        $sql = "INSERT INTO posts (title,user_id, author, content, tag, image) 
+                    VALUES ('$title','$user_id', '$author', '$content', '$tag', '$image')";
         return $this->execute($sql);
     }
 

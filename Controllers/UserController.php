@@ -21,7 +21,7 @@ class UserController
             if ( $check === 0)
             {
                 $err = "Wrong email or password! ";
-                header('Location: index.php?controller=UserController&action=logInForm');
+                require_once "views/login.php";
             } else
             {
                 $user_ = $user->getDataByEmail($email,$password);

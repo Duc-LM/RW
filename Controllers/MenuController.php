@@ -13,10 +13,10 @@ class MenuController
         }
         else
         {
-            $appetizerList = $menu->get_All_Category('appetizer');
-            $mainDishList  = $menu->get_All_Category('main dish');
-            $dessertList  = $menu->get_All_Category('dessert');
-            $drinksList = $menu->get_All_Category('drinks');
+            $appetizerList = $menu->get_Menu_By_Category('appetizer');
+            $mainDishList  = $menu->get_Menu_By_Category('main dish');
+            $dessertList  = $menu->get_Menu_By_Category('dessert');
+            $drinksList = $menu->get_Menu_By_Category('drinks');
             require_once 'views/menu.php';
         }
             

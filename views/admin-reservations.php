@@ -1,4 +1,4 @@
-<?php require_once 'views/include/admin-header.php'; ?>
+<?php if (isset($_SESSION['role'])) { require_once 'views/include/admin-header.php'; ?>
 <!-- MAIN CONTENT-->
 <div class="main-content">
     <div class="section__content section__content--p30">
@@ -10,7 +10,7 @@
                         <h3 class="title-3 m-b-30">
                             <i class="zmdi zmdi-account-calendar"></i>Reservations:</h3>
                         <hr>
-                        <a href="admin-addreservations.php" style="position: relative; float:right; margin-right: 10px"><button type="button" class="btn btn-primary">Create</button></a>
+                        <a href="index.php?controller=ReservationController&action=createForm" style="position: relative; float:right; margin-right: 10px"><button type="button" class="btn btn-primary">Create</button></a>
                         <div class="table-responsive table-data">
                             <table class="table">
                                 <thead>
@@ -48,7 +48,9 @@
                                         <td>
                                             <a href="index.php?controller=ReservationController&action=updateForm&id=<?php echo $reservation['id']?>">
                                                 <button type="button" class="btn btn-success">Edit</button></a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
+                                                <a href="index.php?controller=ReservationController&action=deleteReservation&id=<?php echo $reservation['id']?>">
+                                                <button type="button" class="btn btn-danger">Delete</button></a>
+                                      
                                         </td>
                                     </tr>
                                     <?php }?>
@@ -74,4 +76,4 @@
 </div>
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
-<?php require_once 'views/include/admin-footer.php'; ?>
+<?php require_once 'views/include/admin-footer.php'; } else header('index.php')?>

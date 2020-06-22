@@ -47,6 +47,7 @@
                                 <img src="../resources/img/logo.png" alt="logo">
                             </a>
                         </div>
+                        <p class='error' style="color:red;">  <?php if(isset($err)) echo $err; ?></p>
                         <div class="login-form">
                             <form action="index.php?controller=UserController&action=logIn" method="post">
                                 <div class="form-group">

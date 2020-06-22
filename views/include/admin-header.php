@@ -71,7 +71,7 @@
                                 <i class="fas fa-calendar-o"></i>Menu</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="index.php?controller=PostController&action=listPostByUser">
                                 <i class="fas fa-bullhorn"></i>Post Announcement</a>
                         </li>
                         <li>
@@ -110,7 +110,7 @@
                                 <i class="fas fa-calendar-o"></i>Menu</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="index.php?controller=PostController&action=listPostByUser">
                                 <i class="fas fa-bullhorn"></i>Post Announcement</a>
                         </li>
                         <li>
@@ -150,7 +150,7 @@
             
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?controller=UserController&action=updateForm&user_id=<?php echo $_SESSION['user_id']?>">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 

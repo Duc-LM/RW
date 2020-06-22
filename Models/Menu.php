@@ -23,15 +23,15 @@ class Menu extends Connect
 
     public function get_Menu_By_Category($category)
     {
-        $sql = "SELECT * FROM menus
-                ORDER BY category    
+        $sql = "SELECT * FROM menus  
                  WHERE category = '$category'";
-	    $this->execute($sql);
-	    if ($this->num_rows() != 0)
-		    $data = mysqli_fetch_array($this->result);
-	    else
-		    $data = 0;
-	    return $data;
+	  $this->execute($sql);
+      if ($this->num_rows() === 0)
+          $data = 0;
+      else
+          while ($datas = $this->getData())
+              $data[] = $datas;
+      return $data;
     }
 
     public function update_Menu($id, $name, $price, $category)
@@ -59,7 +59,7 @@ class Menu extends Connect
         $sql = "SELECT * FROM menus WHERE id = '$id'";
 	    $this->execute($sql);
 	    if ($this->num_rows() != 0)
-		    $data = mysqli_fetch_array($this->execute($sql));
+		    $data = mysqli_fetch_array( $this->execute($sql));
 	    else
 		    $data = 0;
 	    return $data;

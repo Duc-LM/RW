@@ -35,7 +35,6 @@
                             <label class="input-group-text" for="address">Restaurant:</label>
                         </div>
                     <select class="custom-select" id="address" name="address">
-                        <option selected>Choose...</option>
                         <option value="Aeon Mall">Aeon Mall</option>
                         <option value="Vincom Center">Vincom Center</option>
                         <option value="Royal City">Royal City</option>

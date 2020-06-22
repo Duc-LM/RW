@@ -9,11 +9,11 @@
           <div class="grid-post m-5 p-5">
 
         <!-- Title -->
-        <h1 class="post-header">Example Header</h1>
+        <h1 class="post-header"> <?php echo $post['title']?></h1>
 
         <!-- Author -->
         <p class="lead">
-          by Admin
+          by <?php echo $post['author']?>
         </p>
 
         <hr>
@@ -24,27 +24,31 @@
         <hr> -->
 
         <!-- Preview Image -->
-        <img class="img-thumbnail rounded" src="../resources/img/banner.jpg" alt="">
+        <img class="img-thumbnail rounded" src=" <?php echo $post['image']?>" alt="">
 
         <hr>
 
         <!-- Post Content -->
-        <p class="content">This is the example content for the example posts. This is the example content for the example posts. This is the example content for the example posts.</p>
+        <p class="content">
+        <?php echo str_replace( '&', '&amp;', $post['content'] ); ?>
+        </p>
 
         <hr>
 
         <!-- Comments Form -->
         <div class="card my-4">
-          <h5 class="card-header">Leave a Comment:</h5>
+          <h5 class="card-header">Create new comment:</h5>
           <div class="card-body">
-            <form action="" method="post">
+            <form action="index.php?controller=CommentController&action=createComment&post_id=<?php echo $post['id'];?> " method="post" enctype="multipart/form-data" class="form-horizontal" >
                 <div class="form-group">
-                    <label for="Name">Name:</label>
-                    <input class="form-control" type="text" name="name" required>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                   
+                    <input class="form-control" type="text" name="email" placeholder="Enter Email" id="email" required>
                 </div>
               <div class="form-group">
-                <label for="Name">Comment:</label>
-                <textarea class="form-control" name="content" rows="3"></textarea>
+                <textarea class="form-control" name="content" id="content" placeholder="Enter Comment" rows="3"></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -52,35 +56,19 @@
         </div>
 
         <!-- Single Comment -->
+        
+        <?php if($commentList !== 0) 
+              foreach ((array)$commentList as $comment) {  ?>
         <div class="media mb-4">
           <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
-
-        <!-- Comment with nested comments -->
-        <div class="media mb-4">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-            <div class="media mt-4">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
+            <h5 class="mt-0"><?php echo $comment['name']?></h5>
+            <h7 class="mt-0"><?php echo $comment['email']?></h7>
+            <p><?php echo $comment['content']?></p>
+              
 
           </div>
         </div>
+<?php }?>
       </div>
     </div>
       </div>
