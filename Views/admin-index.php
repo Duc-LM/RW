@@ -541,4 +541,4 @@
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
-<?php  require_once 'views/include/admin-footer.php';} else header('index.php');?>
+<?php  require_once 'views/include/admin-footer.php';} else header('Location: index.php');?>

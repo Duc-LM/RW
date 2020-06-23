@@ -7,14 +7,14 @@ class CommentController
     {
         $comment = new Comment();
         $comment->_connect();
-        $post_id = $_GET['post_id'];
+        $post_id = intval($_GET['post_id']);
 
         $name = $_POST['name'];
         $email = $_POST['email'];
         $content = $_POST['content'];
-        $comment->createComment($post_id,$name,$email,$content);
-        $com = $comment->getCommentId($name,$email,$content);
-        $comment->createPost_Comment($post_id,$com['id']);
+        $comment->createComment($name,$email,$content);
+        $comment_id = intval(($comment->getCommentId($name,$email,$content))['id']);
+        $comment->createPost_Comment($post_id,$comment_id);
         header('Location: index.php?controller=PostController&action=listPost');
     }
 

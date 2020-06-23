@@ -144,7 +144,7 @@
                                             <img src="../resources/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div> -->
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo ucwords($_SESSION['role'])?></a>
+                                            <a class="js-acc-btn" href="#"><?php echo ucwords($_SESSION['role'])?> Name:<?php echo ucwords($_SESSION['name'])?> </a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
             

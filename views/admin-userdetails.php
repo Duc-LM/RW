@@ -27,6 +27,7 @@
                                                     <input type="email" id="email" name="email" value="<?php echo $user['email'] ?>"  placeholder="Enter Email" class="form-control">
                                                 
                                                 </div>
+                                                <p class='error' style="color:red;">  <?php if(isset($err)) echo $err; ?></p>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
@@ -72,7 +73,7 @@
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <input type="password" id="password-input" name="confirm_password" value="<?php echo$user['password']?>" class="form-control" pattern=".{6,}">
-                                                    <p class='error' style="color:red;">  <?php if(isset($err)) echo $err; ?></p>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="card-footer">
@@ -102,4 +103,4 @@
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
-            <?php  require_once 'views/include/admin-footer.php';} else header('index.php')?>
+            <?php  require_once 'views/include/admin-footer.php';} else header('Location: index.php')?>

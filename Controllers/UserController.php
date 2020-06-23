@@ -26,6 +26,7 @@ class UserController
             {
                 $user_ = $user->getDataByEmail($email,$password);
                 $_SESSION['user_id'] = $user_['id'];
+                $_SESSION['name']= $user_['name'];
                 $_SESSION['role'] = $user_['role'];
                 if ( $user_['role'] === 'admin' ||  $_SESSION['role'] === 'staff')
                     header('Location: index.php?controller=HomeController&action=adminPage');
@@ -49,7 +50,7 @@ class UserController
         $confirm_password = $_POST['confirm_password'];
         //validation
         $err = array();
-        if ($userModel->checkEmail($email)) $err['email'] = 'Email already exists';
+        if ($userModel->checkEmail($email)=== false) $err['email'] = 'Email already exists';
         if ($password !== $confirm_password) $err['password'] = 'The two passwords are not the same';
 
         if (!$err)
@@ -93,8 +94,15 @@ class UserController
         $phone = $_POST['mobile'];
         $new_password =  $_POST['new_password'];
         $confirm_password = $_POST['confirm_password'];
+        $user = $userModel->getDataById($user_id);
 
-        if ($new_password === $confirm_password)
+        if ($user['email'] !== $email && $userModel->checkEmail($email) === false) 
+        {
+            $err = "Email already existed.";
+            $user = $userModel->getDataById($_GET['user_id']);
+            require_once "Views/admin-userdetails.php";
+        }
+        elseif ($new_password === $confirm_password)
         {
             $userModel->update_User($user_id,$name,$email,$new_password,$phone);
             if ($_SESSION['role'] === 'admin')

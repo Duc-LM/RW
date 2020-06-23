@@ -5,10 +5,10 @@ class Comment extends Connect
    
     public function getCommentId($name,$email,$content)
     {
-        $sql="SELECT * From comments where name = '$name', email = '$email' and content = '$content' ";
+        $sql="SELECT * FROM comments WHERE name = '$name', email = '$email' and content = '$content' ";
         $this->execute($sql);
         if ($this->num_rows() != 0)
-            $data = mysqli_fetch_array($this->execute($sql));
+            $data = mysqli_fetch_array( $this->execute($sql));
         else
             $data = 0;
         return $data;
@@ -38,8 +38,8 @@ class Comment extends Connect
 
     public function createPost_Comment($post_id,$comment_id)
     {
-        $sql = "INSERT INTO post_comment(post_id,comment_id)
-                    VALUES('$post_id','$comment_id')";
+        $sql = "INSERT INTO `post_comment` (post_id, comment_id) VALUES
+                    ('$post_id','$comment_id')";
         return $this->execute($sql);        
     }
 

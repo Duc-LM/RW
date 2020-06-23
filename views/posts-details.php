@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group">
                    
-                    <input class="form-control" type="text" name="email" placeholder="Enter Email" id="email" required>
+                    <input class="form-control" type="email" name="email" placeholder="Enter Email" id="email" required>
                 </div>
               <div class="form-group">
                 <textarea class="form-control" name="content" id="content" placeholder="Enter Comment" rows="3"></textarea>

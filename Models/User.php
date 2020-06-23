@@ -77,12 +77,13 @@ class User  extends Connect
     {
         $sql = "SELECT * from users where email = '$email' ";
 		$this->execute($sql);
-		if($this->num_rows()===0){
+		if($this->num_rows() !==0){
 			return false;
 		}else{
 			return true;
 		}
     }
+ 
 
     public function getDataById($user_id)
     {
