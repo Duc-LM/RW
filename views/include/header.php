@@ -24,7 +24,7 @@
                     <a href="index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?controller=MenuController&action=getAllMenu" class="nav-link">Menu</a>
+                    <a href="index.php?controller=MenuController&action=getAllMenu1" class="nav-link">Menu</a>
                 </li>
                 <li class="nav-item">
                     <a href="index.php?controller=PostController&action=listPost" class="nav-link">Announcement</a>
@@ -35,9 +35,11 @@
                 <li class="nav-item">
                     <a href="index.php?controller=FeedbackController&action=createForm" class="nav-link">Contact</a>
                 </li>
+                <?php if(!isset($_SESSION['role'])) { ?>
                 <li class="nav-item">
                   <a href="index.php?controller=UserController&action=loginForm" class="nav-link">Login</a>
               </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>
