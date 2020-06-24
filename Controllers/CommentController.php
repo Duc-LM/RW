@@ -13,8 +13,8 @@ class CommentController
         $email = $_POST['email'];
         $content = $_POST['content'];
         $comment->createComment($name,$email,$content);
-        $comment_id = intval(($comment->getCommentId($name,$email,$content))['id']);
-        $comment->createPost_Comment($post_id,$comment_id);
+        $com= $comment->getCommentId($name,$email,$content);
+        $comment->createPost_Comment($post_id,$com['id']);
         header('Location: index.php?controller=PostController&action=listPost');
     }
 
