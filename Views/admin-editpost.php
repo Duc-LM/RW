@@ -46,14 +46,13 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <img src=" <?php echo $post['image'] ?>" alt="" height="150" width="150" />
-                                        <input type="file" name="image" id="image" placeholder="Browser Image" class="form-control" accept="image/*" required>
-
+                                        <input type="file" name="image" id="image" placeholder="Browser Image" class="form-control" accept="image/*">
                                     </div>
 
                                     <p class='error' style="color:red;"> <?php if (isset($err['image'])) echo $err['image']; ?></p>
                                 </div>
                                 <textarea name="content" id="editor">
-                                        &lt;p&gt;This is some sample content.&lt;/p&gt;
+                                    <?php echo $post['content'] ?>
                                 </textarea>
                         </div>
                         <div class="card-footer">

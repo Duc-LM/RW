@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Fontfaces CSS-->
     <link href="../resources/css/font-face.css" rel="stylesheet" media="all">
@@ -42,7 +42,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.php?controller=HomeController&action=adminPage">
+                        <a class="logo" href="index.php">
                             <img src="../resources/img/logo.png" alt="logo" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -78,7 +78,10 @@
                             <a href="index.php?controller=FeedbackController&action=getAllFeedback">
                                 <i class="fas fa-comment"></i>Feedback</a>
                         </li>
-                        
+                        <li>
+                            <a href="index.php">
+                                <i class="fas fa-history"></i>Back to Homepage</a>
+                        </li>  
                     </ul>
                 </div>
             </nav>
@@ -117,7 +120,10 @@
                             <a href="index.php?controller=FeedbackController&action=getAllFeedback">
                                 <i class="fas fa-comment"></i>Feedback</a>
                         </li>
-                                           
+                        <li>
+                            <a href="index.php">
+                                <i class="fas fa-history"></i>Back to Homepage</a>
+                        </li>                   
                     </ul>
                 </nav>
             </div>

@@ -8,7 +8,7 @@
                     <!-- DATA-->
                     <div class="user-data m-b-30">
                         <h3 class="title-3 m-b-30">
-                            <i class="zmdi zmdi-account-calendar"></i>Menu:</h3>
+                            <i class="zmdi zmdi-assignment"></i>Menu:</h3>
                         <hr>
                         <a href="index.php?controller=MenuController&action=createForm" style="position: relative; float:right; margin-right: 10px">
                             <button type="button" class="btn btn-primary">Create</button></a>

@@ -6,19 +6,19 @@ class MenuController
     {
         $menu = new Menu();
         $menu->_connect();
-        if (isset($_SESSION['role']))
-        {
             $menuList = $menu->get_All_Data();
             require_once 'views/admin-menu.php';
-        }
-        else
-        {
+            
+    }
+    public function getAllMenu1()
+    {
+        $menu = new Menu();
+        $menu->_connect();
             $appetizerList = $menu->get_Menu_By_Category('appetizer');
             $mainDishList  = $menu->get_Menu_By_Category('main dish');
             $dessertList  = $menu->get_Menu_By_Category('dessert');
             $drinksList = $menu->get_Menu_By_Category('drinks');
             require_once 'views/menu.php';
-        }
             
     }
 

@@ -9,7 +9,7 @@
                   <div class="text-menu">
                       <div class="row">
                           <div class="col-10">Name</div>
-                          <div class="col-2">Price (VND)</div>
+                          <div class="col-2">Price (US$)</div>
                       </div>
                   </div>
                   <hr class="hr-menu">

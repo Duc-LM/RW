@@ -52,7 +52,7 @@
                                             <?php } ?>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label"> Currnent Password:</label>
+                                                    <label for="password-input" class=" form-control-label"> Current Password:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                    <?php echo $user['password'] ?>
@@ -63,7 +63,7 @@
                                                     <label for="password-input" class=" form-control-label"> New Password</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="new_password"  value="<?php echo$user['password']?>" class="form-control" pattern=".{6,}">
+                                                    <input type="password" id="password-input" name="new_password" class="form-control" pattern=".{6,}">
                                             </div>
                                             </div>
                                             <div class="row form-group" >
@@ -71,7 +71,7 @@
                                                     <label for="password-input" class=" form-control-label">Confirm Password</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="confirm_password" value="<?php echo$user['password']?>" class="form-control" pattern=".{6,}">
+                                                    <input type="password" id="password-input" name="confirm_password" class="form-control" pattern=".{6,}">
                                                     <p class='error' style="color:red;">  <?php if(isset($err)) echo $err; ?></p>
                                                 </div>
                                             </div>

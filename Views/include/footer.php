@@ -12,10 +12,10 @@
         <p>Rekindle Your Passion For Food!</p>
         <p><strong>Follow us on: </strong>
           <br/>
-          <a href="https://www.facebook.com/cadang1303"><img src="../resources/img/svg/facebook.svg" class="footer-icons" alt="facebook"></a>
-          <a href="https://www.instagram.com/cadangahihi/"><img src="../resources/img/svg/instagram.svg" class="footer-icons" alt="instagram"></a>
-          <a href="https://www.youtube.com/channel/UCayk_5Ju9nc2yF6IJfVPQCg"><img src="../resources/img/svg/youtube.svg" class="footer-icons" alt="youtube"></a>
-          <a href="https://twitter.com/cadang1303/"><img src="../resources/img/svg/twitter.svg" class="footer-icons" alt="twitter"></a>
+          <a href="https://www.facebook.com/"><img src="../resources/img/svg/facebook.svg" class="footer-icons" alt="facebook"></a>
+          <a href="https://www.instagram.com/"><img src="../resources/img/svg/instagram.svg" class="footer-icons" alt="instagram"></a>
+          <a href="https://www.youtube.com/"><img src="../resources/img/svg/youtube.svg" class="footer-icons" alt="youtube"></a>
+          <a href="https://twitter.com/"><img src="../resources/img/svg/twitter.svg" class="footer-icons" alt="twitter"></a>
         </p>
       </div>
       <!-- Grid column -->
@@ -69,7 +69,7 @@
               <i class="fa fa-home"></i> Address: 123 California, Cam District
             </li>
             <li>
-              <i class="fa fa-envelope-o"></i> Email: tranvandan1@gmail.com
+              <i class="fa fa-envelope-o"></i> Email: rw123@gmail.com
             </li>
             <li>
               <i class="fa fa-phone"></i> Phone: 012 332 1123

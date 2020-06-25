@@ -31,13 +31,13 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="moblie" class="form-control-label">Mobile</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="number" id="" name="mobile" value="Enter Mobile"  placeholder="Enter Mobile" class="form-control">
-                                                </div>
-                                            </div>
+                                    <div class="col col-md-3">
+                                        <label for="moblie" class="form-control-label">Mobile</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="number" id="" name="mobile" value="Enter Mobile"  placeholder="Enter Mobile" class="form-control">
+                                    </div>
+                                </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="role" class=" form-control-label">Role</label>

@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="tag" class=" form-control-label">Author</label>
+                                        <label for="tag" class=" form-control-label">Tag</label>
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="tag" name="tag" placeholder="Enter Tag" class="form-control" required>
